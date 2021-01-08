@@ -75,7 +75,7 @@ const ticker = () => {
   flock.forEach((boid, index) => {
 
     boid.edges()
-    boid.flock(flock)
+    boid.flock(flock, uniforms.u_time.value)
     boid.update()
 
     if (isNaN(boid.position.x)) {

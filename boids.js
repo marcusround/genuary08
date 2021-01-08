@@ -3,6 +3,9 @@
 // https://thecodingtrain.com/CodingChallenges/124-flocking-boids.html
 // https://youtu.be/mhjuuHl6qHM
 // https://editor.p5js.org/codingtrain/sketches/ry4XZ8OkN
+
+// Adapted for THREE by @marcusround
+
 import * as THREE from './lib/three.module.js'
 
 export default class Boid {
@@ -95,14 +98,14 @@ export default class Boid {
     return steering
   }
 
-  flock(boids) {
+  flock(boids, t) {
     let alignment = this.align(boids)
     let cohesion = this.cohesion(boids)
     let separation = this.separation(boids)
     
-    alignment.multiplyScalar(0.5)
-    cohesion.multiplyScalar(0.5)
-    separation.multiplyScalar(1.0)
+    alignment.multiplyScalar(Math.sin(t) * 0.25 + 0.5)
+    cohesion.multiplyScalar(Math.sin(t*.324+123) * 0.25 + 0.5)
+    separation.multiplyScalar(1)
     
     this.acceleration.add(alignment)
     this.acceleration.add(cohesion)

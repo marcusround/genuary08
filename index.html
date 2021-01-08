@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      overflow: hidden;
+      padding: 0;
+      margin: 0;
+      background-color: rgb(53, 54, 58);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container"></div>
+  <script src="js/three.min.js"></script>
+  <script id="vertexShader" type="x-shader/x-vertex">
+    void main() {
+      gl_Position = vec4( position, 1.0 );
+  }
+    </script>
+  <script id="fragmentShader" type="x-shader/x-fragment">
+        uniform vec2 u_resolution;
+        uniform float u_time;
+        uniform vec2 u_mouse;
+
+        void main() {
+            vec2 st = (gl_FragCoord.xy+u_mouse.xy)/u_resolution.xy;
+            gl_FragColor=vec4(st.x,st.y,0.0,1.0);
+        }
+    </script>
+
+
+  <script type="module" src="index.js"></script>
+
+</body>
+
+</html>

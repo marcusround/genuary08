@@ -93,32 +93,10 @@ void main() {
 
   circleVelocities *= velocityMult;
 
-  float circles2 = smoothstep(0.0000000,0.05,circles);
-  circles2 *= circles2;
-  circles = smoothstep(.0000002,.000000201,circles);
-
-  // circles += step(circ(uv - positions[0]), 0.005);
-  // circles += step(circ(uv - positions[1]), 0.005);
-  // circles += step(circ(uv - positions[2]), 0.005);
-  // circles += step(circ(uv - positions[3]), 0.005);
-  // circles += step(circ(uv - positions[4]), 0.005);
-  // circles += step(circ(uv - positions[5]), 0.005);
-  // circles += step(circ(uv - positions[6]), 0.005);
-  // circles += step(circ(uv - positions[7]), 0.005);
-  // circles += step(circ(uv - positions[8]), 0.005);
-  // circles += step(circ(uv - positions[9]), 0.005);
-  // circles += step(circ(uv - positions[10]),0.005);
-  // circles += step(circ(uv - positions[11]),0.005);
-  // circles += step(circ(uv - positions[12]),0.005);
-  // circles += step(circ(uv - positions[13]),0.005);
-  // circles += step(circ(uv - positions[14]),0.005);
-  // circles += step(circ(uv - positions[15]),0.005);
-  // circles += step(circ(uv - positions[16]),0.005);
-  // circles += step(circ(uv - positions[17]),0.005);
-  // circles += step(circ(uv - positions[18]),0.005);
+  circles = smoothstep(.0000002,.0000002201,circles);
 
   // vec2 mouse = st + u_mouse.xy/u_resolution.xy;
-  vec3 col = vec3(circleVelocities.x, circleVelocities.y,.0);
+  vec3 col = vec3(.0, circleVelocities.x, circleVelocities.y);
 
   col *= (1.-circles);
 

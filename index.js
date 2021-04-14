@@ -55,6 +55,7 @@ const init = () => {
 
   renderer = new THREE.WebGLRenderer()
   renderer.setPixelRatio(window.devicePixelRatio)
+  renderer.outputEncoding = THREE.sRGBEncoding
 
   container.appendChild(renderer.domElement)
 
